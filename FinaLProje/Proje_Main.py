@@ -93,3 +93,71 @@ try:
     print(beyaz_yaka3)
 except ValueError as ve:
     print(f"Hata: {ve}")
+
+# DataFrame oluşturma
+data = {
+    "nesne_degeri": ["Çalışan", "Çalışan", "Çalışan", "Mavi Yaka", "Mavi Yaka", "Mavi Yaka", "Beyaz Yaka", "Beyaz Yaka", "Beyaz Yaka"],
+    "tc_no": [calisan1.get_tc_no(), calisan2.get_tc_no(), calisan3.get_tc_no(), mavi_yaka1.get_tc_no(), mavi_yaka2.get_tc_no(), mavi_yaka3.get_tc_no(), beyaz_yaka1.get_tc_no(), beyaz_yaka2.get_tc_no(), beyaz_yaka3.get_tc_no()],
+    "ad": [calisan1.get_ad(), calisan2.get_ad(), calisan3.get_ad(), mavi_yaka1.get_ad(), mavi_yaka2.get_ad(), mavi_yaka3.get_ad(), beyaz_yaka1.get_ad(), beyaz_yaka2.get_ad(), beyaz_yaka3.get_ad()],
+    "soyad": [calisan1.get_soyad(), calisan2.get_soyad(), calisan3.get_soyad(), mavi_yaka1.get_soyad(), mavi_yaka2.get_soyad(), mavi_yaka3.get_soyad(), beyaz_yaka1.get_soyad(), beyaz_yaka2.get_soyad(), beyaz_yaka3.get_soyad()],
+    "yas": [calisan1.get_yas(), calisan2.get_yas(), calisan3.get_yas(), mavi_yaka1.get_yas(), mavi_yaka2.get_yas(), mavi_yaka3.get_yas(), beyaz_yaka1.get_yas(), beyaz_yaka2.get_yas(), beyaz_yaka3.get_yas()],
+    "cinsiyet": [calisan1.get_cinsiyet(), calisan2.get_cinsiyet(), calisan3.get_cinsiyet(), mavi_yaka1.get_cinsiyet(), mavi_yaka2.get_cinsiyet(), mavi_yaka3.get_cinsiyet(), beyaz_yaka1.get_cinsiyet(), beyaz_yaka2.get_cinsiyet(), beyaz_yaka3.get_cinsiyet()],
+    "uyruk": [calisan1.get_uyruk(), calisan2.get_uyruk(), calisan3.get_uyruk(), mavi_yaka1.get_uyruk(), mavi_yaka2.get_uyruk(), mavi_yaka3.get_uyruk(), beyaz_yaka1.get_uyruk(), beyaz_yaka2.get_uyruk(), beyaz_yaka3.get_uyruk()],
+    "sektor": [calisan1.get_sektor(), calisan2.get_sektor(), calisan3.get_sektor(), mavi_yaka1.get_sektor(), mavi_yaka2.get_sektor(), mavi_yaka3.get_sektor(), beyaz_yaka1.get_sektor(), beyaz_yaka2.get_sektor(), beyaz_yaka3.get_sektor()],
+    "tecrube": [calisan1.get_tecrube(), calisan2.get_tecrube(), calisan3.get_tecrube(), mavi_yaka1.get_tecrube(), mavi_yaka2.get_tecrube(), mavi_yaka3.get_tecrube(), beyaz_yaka1.get_tecrube(), beyaz_yaka2.get_tecrube(), beyaz_yaka3.get_tecrube()],
+    "maas": [calisan1.get_maas(), calisan2.get_maas(), calisan3.get_maas(), mavi_yaka1.get_maas(), mavi_yaka2.get_maas(), mavi_yaka3.get_maas(), beyaz_yaka1.get_maas(), beyaz_yaka2.get_maas(), beyaz_yaka3.get_maas()],
+    "yipranma_payi": [calisan1.get_yipranma_payi(), calisan2.get_yipranma_payi(), calisan3.get_yipranma_payi(), mavi_yaka1.get_yipranma_payi(), mavi_yaka2.get_yipranma_payi(), mavi_yaka3.get_yipranma_payi(), beyaz_yaka1.get_yipranma_payi(), beyaz_yaka2.get_yipranma_payi(), beyaz_yaka3.get_yipranma_payi()],
+    "tesvik_primi": [calisan1.get_tesvik_primi(), calisan2.get_tesvik_primi(), calisan3.get_tesvik_primi(), mavi_yaka1.get_tesvik_primi(), mavi_yaka2.get_tesvik_primi(), mavi_yaka3.get_tesvik_primi(), beyaz_yaka1.get_tesvik_primi(), beyaz_yaka2.get_tesvik_primi(), beyaz_yaka3.get_tesvik_primi()],
+    "yeni_maas": [calisan1.yeni_maas(), calisan2.yeni_maas(), calisan3.yeni_maas(), mavi_yaka1.yeni_maas(), mavi_yaka2.yeni_maas(), mavi_yaka3.yeni_maas(), beyaz_yaka1.yeni_maas(), beyaz_yaka2.yeni_maas(), beyaz_yaka3.yeni_maas()]
+}
+
+df = pd.DataFrame(data)
+
+# a) Boş değerleri 0 olarak ayarlama
+df = df.fillna(0)
+
+# b) Gruplama ve ortalama hesaplama
+gruplu_tecrube_maas = df.groupby(["nesne_degeri"])[["tecrube", "maas"]].mean()
+print("\nGruplanmış Tecrübe ve Yeni Maaş Ortalamaları:")
+print(gruplu_tecrube_maas)
+
+# c) Maaşı 15000 TL üzerinde olanların sayısı
+maas_ust_sinir = 15000
+ust_siniri_gecenler = df[df["maas"] > maas_ust_sinir]
+ust_siniri_gecenler_sayisi = len(ust_siniri_gecenler)
+print("\n15000 TL üzerinde maaşı olanların sayısı:", ust_siniri_gecenler_sayisi)
+
+# d) Yeni maaşa göre küçükten büyüğe sıralama
+df_siralama = df.sort_values(by="yeni_maas")
+print("\nYeni Maaşa Göre Sıralama:")
+print(df_siralama)
+
+# e) Tecrübesi 3 seneden fazla olan Beyaz Yakalıları bulma
+tecrube_siniri = 3
+beyaz_yaka_tecrube = df[(df["nesne_degeri"] == "Beyaz Yaka") & (df["tecrube"] > tecrube_siniri)]
+print("\nTecrübesi 3 seneden fazla olan Beyaz Yakalılar:")
+print(beyaz_yaka_tecrube)
+
+# f) Yeni maaşı 10000 TL üzerinde olanların 2-5 satırlarını seçme
+maas_siniri = 10000
+ust_siniri_gecenler_2_5 = df[(df["yeni_maas"] > maas_siniri)].iloc[2:5, [1, 9]]
+print("\nYeni maaşı 10000 TL üzerinde olanların 2-5 satırları:")
+print(ust_siniri_gecenler_2_5)
+
+# g) Ad, soyad, sektör ve yeni maaş içeren yeni DataFrame
+yeni_df = df[["ad", "soyad", "sektor", "yeni_maas"]]
+print("\nYeni DataFrame:")
+print(yeni_df)
+#  h) Excel'e yazma
+df.to_excel("calisanlar.xlsx", index=False)
+
+# # # i) CSV'ye yazma
+df.to_csv("calisanlar.csv", index=False)
+# #
+# j) Dictionary'e dönüştürme
+# df_dict = df.to_dict(orient="records")
+
+# k) İsimlere göre filtreleme
+isim_filtre = df[df["ad"].str.startswith("A")]
+print("\nA harfi ile başlayan isimler:")
+print(isim_filtre)
