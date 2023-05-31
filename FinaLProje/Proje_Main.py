@@ -78,13 +78,13 @@ except ValueError as ve:
 
 # BeyazYaka nesnesi oluşturma
 try:
-    beyaz_yaka1 = BeyazYaka("Ahmet", "Kara", 35, "Erkek", "Türk", "teknoloji", 24, 5000, 2.1, 500)
+    beyaz_yaka1 = BeyazYaka("Ahmet", "Kara", 35, "Erkek", "Türk", "teknoloji", 24, 5700, 2.1, 500)
     beyaz_yaka1.set_tc_no("1247525445")
 
-    beyaz_yaka2 = BeyazYaka("Ayşe", "Yılmaz", 25, "Kadın", "Türk", "muhasebe", 48, 10000, 1.6, 2500)
+    beyaz_yaka2 = BeyazYaka("Ayşe", "Yılmaz", 25, "Kadın", "Türk", "muhasebe", 48, 10200, 1.6, 2500)
     beyaz_yaka2.set_tc_no("21457896334")
 
-    beyaz_yaka3 = BeyazYaka("Mehmet", "Sarı", 40, "Erkek", "Türk", "inşaat", 60, 20000, 2.05, 500)
+    beyaz_yaka3 = BeyazYaka("Mehmet", "Sarı", 40, "Erkek", "Türk", "inşaat", 60, 21070, 2.05, 500)
     beyaz_yaka3.set_tc_no("78624530114")
 
     print("\nBeyaz Yaka Bilgileri:")
