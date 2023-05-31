@@ -33,7 +33,29 @@ class Calisan(Insan):
         except ValueError:
             raise ValueError("Tecrube değeri tamsayı olmalıdır!")
 
-    
+    def get_tecrube(self):
+        return self.tecrube
+
+    def set_maas(self, maas):
+        try:
+            self.__maas = float(maas)
+        except ValueError:
+            raise ValueError("Maaş değeri ondalık sayı olmalıdır!")
+
+    def get_maas(self):
+        return self.__maas
+
+    def set_yipranma_payi(self, yipranma_payi):
+        try:
+            self.__yipranma_payi = float(yipranma_payi)
+        except ValueError:
+            raise ValueError("Yıpranma payı değeri ondalık sayı olmalıdır!")
+
+    def get_yipranma_payi(self):
+        return self.yipranma_payi
+
+    def get_tesvik_primi(self):
+        return self.tesvik_primi
 
     def zam_hakki(self):
         if self.tecrube <= 0:
