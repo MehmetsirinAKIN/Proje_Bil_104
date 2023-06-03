@@ -1,10 +1,10 @@
 nesne_degeri,tc_no,ad,soyad,yas,cinsiyet,uyruk,sektor,tecrube,maas,yipranma_payi,tesvik_primi,yeni_maas
-Çalışan,1357924680,Ahmet,Kara,35,Erkek,Türk,teknoloji,24,5000.0,1.5,2415.0,5600.0
-Çalışan,0987654321,Ayşe,Yılmaz,25,Kadın,Türk,muhasebe,48,10000.0,2.4,1457.0,12400.0
-Çalışan,9876543210,Mehmet,Sarı,40,Erkek,Türk,inşaat,60,20000.0,1.9,850.0,26000.0
-Mavi Yaka,8745625478,Ahmet,Kara,35,Erkek,Türk,teknoloji,24,5000.0,0.2,1965.0,5600.0
-Mavi Yaka,12324562138,Ayşe,Yılmaz,25,Kadın,Türk,muhasebe,48,10000.0,0.5,500.0,12400.0
-Mavi Yaka,21065490756,Mehmet,Sarı,40,Erkek,Türk,inşaat,60,20000.0,0.2,600.0,26000.0
-Beyaz Yaka,1247525445,Ahmet,Kara,35,Erkek,Türk,teknoloji,24,5700.0,2.1,500.0,7068.0
-Beyaz Yaka,21457896334,Ayşe,Yılmaz,25,Kadın,Türk,muhasebe,48,10200.0,1.6,2500.0,15096.0
-Beyaz Yaka,78624530114,Mehmet,Sarı,40,Erkek,Türk,inşaat,60,21070.0,2.05,500.0,33712.0
+Çalışan,13579246807,Emin,Kaynar,35,Erkek,Türk,teknoloji,3.0,5000.0,1.5,2415.0,5150.0
+Çalışan,19876543214,Zehra,Benice,25,Kadın,Türk,muhasebe,1.0,10000.0,2.4,1457.0,10000.0
+Çalışan,98765432105,Mehmet,Şirin,40,Erkek,Türk,inşaat,9.0,20000.0,1.9,850.0,20900.0
+Mavi Yaka,87456254978,Kerem,Salkım,35,Erkek,Türk,teknoloji,1.0,5000.0,0.2,1965.0,10000.0
+Mavi Yaka,12324562138,Hatice,Güngörmez,25,Kadın,Türk,muhasebe,5.0,10000.0,0.5,500.0,20005.0
+Mavi Yaka,21065490756,Yasin,Güngörmez,40,Erkek,Türk,inşaat,3.0,20000.0,0.2,600.0,40000.0
+Beyaz Yaka,12475259445,Ahmet,Kara,35,Erkek,Türk,teknoloji,1.5,5700.0,2.1,500.0,11400.0
+Beyaz Yaka,21457896334,Ayşe,Yılmaz,25,Kadın,Türk,muhasebe,4.0,10200.0,1.6,2500.0,22900.0
+Beyaz Yaka,78624530114,Mehmet,Sarı,40,Erkek,Türk,inşaat,7.0,21070.0,2.05,500.0,42640.0

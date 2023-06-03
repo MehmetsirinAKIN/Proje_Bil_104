@@ -59,13 +59,13 @@ class Calisan(Insan):
 
     def zam_hakki(self):
         if self.tecrube <= 0:
-            return 0
+            return 0      # Yorum satırı: Tecrübe sıfırdan küçük veya eşitse zam yok.
         elif 2 <= self.tecrube <= 4 and self.__maas < 15000:
-            return self.__maas * self.tecrube / 100
+            return self.__maas * self.tecrube / 100   # Yorum satırı: Tecrübe 2-4 arasında ve maaş 15000'den düşükse zam miktarı maaşın %tecrube kadarı.
         elif self.tecrube > 4 and self.__maas < 25000:
-            return self.__maas * self.tecrube / 200
+            return self.__maas * self.tecrube / 200 # Yorum satırı: Tecrübe 4'ten büyük ve maaş 25000'den düşükse zam miktarı maaşın %tecrube/2 kadarı.
         else:
-            return 0
+            return 0          #  Diğer durumlarda zam yok.
 
     def yeni_maas(self):
         self.maas = self.__maas + self.zam_hakki()

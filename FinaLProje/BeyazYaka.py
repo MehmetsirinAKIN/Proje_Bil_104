@@ -44,11 +44,25 @@ class BeyazYaka(Calisan):
         return self.tesvik_primi
 
     def zam_hakki(self):
-        if self.get_tecrube() <= 0:
-            return 0
+        tecrube = self.get_tecrube()
+        maas = self.get_maas()
+        tesvik_primi = self.get_tesvik_primi()
+
+        if tecrube < 2:
+            return maas  # Yorum satırı: Tecrübe 2'den küçükse zam yok.
+        elif 2 <= tecrube <= 4 and maas < 15000:
+            zam_miktari = (maas % tecrube) * 5 + tesvik_primi
+            # Yorum satırı: Tecrübe 2-4 arasında ve maaş 15000'den düşükse zam miktarı (maas%tecrube)*5 + teşvik_primi.
+        elif tecrube > 4 and maas < 25000:
+            zam_miktari = (maas % tecrube) * 4 + tesvik_primi
+            # Yorum satırı: Tecrübe 4'ten büyük ve maaş 25000'den düşükse zam miktarı (maas%tecrube)*4 + teşvik_primi.
         else:
-            return self.get_maas() * self.get_tecrube() / 100
+            zam_miktari = 0
+            # Yorum satırı: Diğer durumlarda zam yok.
+
+        yeni_maas = maas + zam_miktari
+        return yeni_maas
 
     def __str__(self):
         yeni_maas = self.get_maas() + self.zam_hakki()
-        return f"Ad: {self.get_ad()}\nSoyad: {self.get_soyad()}\nTecrübe: {self.get_tecrube()} ay\nYeni Maaş: {yeni_maas}"
+        return f"Ad: {self.get_ad()}\nSoyad: {self.get_soyad()}\nTecrübe: {self.get_tecrube()} yıl\nYeni Maaş: {yeni_maas}"

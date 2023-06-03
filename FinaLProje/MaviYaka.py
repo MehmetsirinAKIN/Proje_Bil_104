@@ -38,14 +38,21 @@ class MaviYaka(Calisan):
         return self.yipranma_payi
 
     def zam_hakki(self):
-        if self.get_tecrube() <= 0:
-            return 0
-        elif 2 <= self.get_tecrube() <= 4 and self.get_maas() < 15000:
-            return self.get_maas() * self.get_tecrube() / 100
-        elif self.get_tecrube() > 4 and self.get_maas() < 25000:
-            return self.get_maas() * self.get_tecrube() / 200
+        tecrube = self.get_tecrube()
+        maas = self.get_maas()
+        yipranma_payi= self.get_yipranma_payi()
+
+        if tecrube < 2:
+            return maas
+        elif 2 <= tecrube <= 4 and maas < 15000:
+            zam_orani = (maas % tecrube) / 2 + yipranma_payi * 10
+        elif tecrube > 4 and maas < 25000:
+            zam_orani = (maas % tecrube) / 3 + yipranma_payi * 10
         else:
-            return 0
+            zam_orani = 0
+
+        yeni_maas = maas + zam_orani
+        return yeni_maas
 
     def __str__(self):
         yeni_maas = self.get_maas() + self.zam_hakki()
